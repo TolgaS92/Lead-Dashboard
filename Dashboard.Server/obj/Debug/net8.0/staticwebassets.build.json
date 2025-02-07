@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "Ai3bsazazzl2y6u4e76VrYoPLyIJnSvBJiw/PvgbFVo=",
+  "Source": "Dashboard.Server",
+  "BasePath": "_content/Dashboard.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\Tolga\\source\\repos\\Dashboard\\dashboard.client\\dashboard.client.esproj",
+      "Version": 2,
+      "Source": "dashboard.client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

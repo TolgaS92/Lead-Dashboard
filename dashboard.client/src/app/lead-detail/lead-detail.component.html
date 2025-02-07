@@ -1,0 +1,34 @@
+<mat-card class="lead-card">
+  <mat-card-header>
+    <mat-card-title>{{ lead?.name }}'s Details</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <!-- Show loading spinner while fetching data -->
+    <div *ngIf="isLoading" class="spinner-container">
+      <mat-spinner></mat-spinner>
+      <p>Loading...</p>
+    </div>
+
+    <!-- Show lead details after loading -->
+    <div *ngIf="!isLoading && lead">
+      <p><strong>Phone:</strong> {{ lead.phoneNumber }}</p>
+      <p><strong>Email:</strong> {{ lead.email }}</p>
+      <p><strong>Zip Code:</strong> {{ lead.zipCode }}</p>
+
+      <p *ngIf="lead.receivedAt" class="notification">
+        ✅ <strong>Notification Sent:</strong> Simulated SMS/Email sent at {{ lead.receivedAt | date:'short' }}
+      </p>
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions class="action-buttons">
+    <button mat-button color="primary" (click)="goBack()">⬅ Go Back</button>
+    <button mat-button
+            color="accent"
+            (click)="lead ? sendNotification(lead) : null"
+            [disabled]="lead?.notificationSent">
+      🚀 Send Notification
+    </button>
+  </mat-card-actions>
+</mat-card>
