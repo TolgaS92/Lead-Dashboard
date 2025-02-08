@@ -1,10 +1,10 @@
 
 # Lead Management Dashboard
 
-This project is a **Lead Management Dashboard** that receives and displays leads from third-party providers via a webhook mechanism. It consists of a .NET Core backend (API) and an Angular frontend (dashboard UI).
+This project is a Lead Management Dashboard that receives and displays leads from third-party providers via a webhook mechanism. It consists of a .NET Core backend (API) and an Angular frontend (dashboard UI).
 
-### Project Structure
-```
+## Project Structure
+
 Dashboard/
 │── Dashboard.Server/          # .NET Core Web API (Backend)
 │   ├── Dashboard.Server.csproj
@@ -20,165 +20,105 @@ Dashboard/
 │   ├── angular.json
 │   ├── package.json
 │   ├── tsconfig.json
-```
 
-### Features
-✅ **Receive leads in real-time** via Webhook  
-✅ **Store leads** in an in-memory collection (no database required)  
-✅ **Display leads** in a user-friendly Angular Dashboard  
-✅ **Send simulated SMS/Email notifications**  
+## Features
 
-### Getting Started
+✅ Receive leads in real-time via Webhook  
+✅ Store leads in in-memory collection (no database required)  
+✅ Display leads in a user-friendly Angular Dashboard  
+✅ Send simulated SMS/Email notifications  
 
-#### 1. Clone the Repository
-```bash
-git clone https://github.com/TolgaS92/your-repo.git
-cd Dashboard
-```
+## Getting Started
 
-#### 2. Run the Backend (API)
-```bash
-cd Dashboard.Server
-# Restore dependencies
-dotnet restore
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/TolgaS92/your-repo.git
+   cd Dashboard
+   ```
 
-# Run the API
-dotnet run
-```
-The API should now be running at [http://localhost:5156](http://localhost:5156).
+2. **Run the Backend (API)**
 
-#### 3. Run the Frontend (Angular App)
-```bash
-cd dashboard.client
-# Install dependencies
-npm install
+   ```bash
+   cd Dashboard.Server
+   # Restore dependencies
+   dotnet restore
+   # Run the API
+   dotnet run
+   ```
 
-# Start the Angular app
-ng serve --open
-```
-The frontend should now be running at [http://localhost:4200](http://localhost:4200).
+   The API should now be running on `http://localhost:5156`.
 
----
+3. **Run the Frontend (Angular App)**
 
-### API Endpoints
+   ```bash
+   cd dashboard.client
+   # Install dependencies
+   npm install
+   # Start the Angular app
+   ng serve --open
+   ```
 
-| Method | Endpoint                | Description                                         |
-|--------|-------------------------|-----------------------------------------------------|
-| POST   | `/api/leads`             | Receive a new lead via webhook                      |
-| GET    | `/api/leads`             | Get all leads                                      |
-| GET    | `/api/leads/{id}`        | Get lead details by ID                             |
-| POST   | `/api/leads/send-notification` | Simulate sending an SMS/email notification to a lead |
+   The frontend should now be running at `http://localhost:4200`.
 
-#### **POST /api/leads** - Receive a New Lead
-- **Description**: This endpoint receives lead data from third-party providers, including the lead's name, phone number, zip code, email address (optional), and whether the lead has opted in to receive communications (`OptInForCommunication`).
-  
-- **Request Body**:
-  ```json
-  {
-    "name": "John Doe",
-    "phoneNumber": "555-1234",
-    "zipCode": "12345",
-    "email": "johndoe@example.com",
-    "optInForCommunication": true
-  }
-  ```
+## API Endpoints
 
-- **Response**:
-  ```json
-  {
-    "status": "Success",
-    "message": "Lead received successfully",
-    "notification": "Simulated: SMS/Email sent to 555-1234",
-    "leadId": "1"
-  }
-  ```
+| Method | Endpoint                 | Description                                        |
+|--------|--------------------------|----------------------------------------------------|
+| POST   | /api/leads                | Receive a new lead                                 |
+| GET    | /api/leads                | Get all leads                                      |
+| GET    | /api/leads/{id}           | Get lead by ID                                     |
+| POST   | /api/leads/send-notification | Send simulated SMS/Email notification             |
 
-#### **GET /api/leads** - Get All Leads
-- **Description**: This endpoint retrieves all the leads stored in the system.
-  
-- **Response**:
-  ```json
-  [
-    {
-      "id": "1",
-      "name": "John Doe",
-      "phoneNumber": "555-1234",
-      "zipCode": "12345",
-      "email": "johndoe@example.com",
-      "optInForCommunication": true
-    },
-    {
-      "id": "2",
-      "name": "Jane Smith",
-      "phoneNumber": "555-5678",
-      "zipCode": "67890",
-      "optInForCommunication": false
-    }
-  ]
-  ```
+## Technologies Used
 
-#### **GET /api/leads/{id}** - Get Lead by ID
-- **Description**: Retrieves detailed information for a specific lead identified by the ID.
-  
-- **Response**:
-  ```json
-  {
-    "id": "1",
-    "name": "John Doe",
-    "phoneNumber": "555-1234",
-    "zipCode": "12345",
-    "email": "johndoe@example.com",
-    "optInForCommunication": true
-  }
-  ```
+- Backend: .NET Core 8, C#, ASP.NET Web API
+- Frontend: Angular, TypeScript, Material UI
+- Dev Tools: Git, Visual Studio, Visual Studio Code
 
-#### **POST /api/leads/send-notification** - Send Simulated Notification (SMS/Email)
-- **Description**: Simulates sending a notification (SMS/Email) to a lead based on whether they opted in and have valid contact info (PhoneNumber or Email).
-  
-- **Request Body**:
-  ```json
-  {
-    "id": "1"
-  }
-  ```
+## Documentation
 
-- **Response**:
-  ```json
-  {
-    "lead": {
-      "id": "1",
-      "name": "John Doe",
-      "phoneNumber": "555-1234",
-      "zipCode": "12345",
-      "email": "johndoe@example.com",
-      "optInForCommunication": true
-    },
-    "message": "SMS notification sent successfully to John Doe."
-  }
-  ```
+### Functional Specification
 
----
+#### How the API Works
+- **POST /api/leads**: Receives a new lead from third-party providers via webhook. The body of the request must include the lead's `Name`, `PhoneNumber`, `ZipCode`, `OptInForCommunication`, and an optional `Email`. The API validates the lead data and adds it to an in-memory collection.
+- **GET /api/leads**: Returns all the leads stored in memory.
+- **GET /api/leads/{id}**: Returns the details of a specific lead identified by its unique `Id`.
+- **POST /api/leads/send-notification**: Simulates the process of sending a notification (SMS/Email) to the lead based on whether they have opted in for communication.
 
-### Technologies Used
+#### Pushing Leads via Webhook
+1. Third-party lead providers will send lead data to the API via the **POST /api/leads** endpoint.
+2. The API receives the lead information and processes it, ensuring all necessary data (Name, PhoneNumber, ZipCode) is included.
+3. A success response is sent back to the provider with the lead’s ID and a confirmation message.
 
-- **Backend**: .NET Core 8, C#, ASP.NET Web API
-- **Frontend**: Angular, TypeScript, Material UI
-- **Dev Tools**: Git, Visual Studio, Visual Studio Code
+#### Notification Workflow
+1. Upon receiving a new lead, the API simulates sending an SMS and/or Email notification based on the `OptInForCommunication` flag.
+2. If the lead has opted in, the API will simulate sending an SMS to the phone number or an Email to the provided email address.
+3. The status of the notification is logged, and the lead's `NotificationSent` flag is updated.
 
----
+### User Guide for the UI
 
-### Contributing
+#### Viewing the Lead List
+1. Navigate to the frontend dashboard (`http://localhost:4200`).
+2. The main screen displays a list of all leads that have been received via webhook.
+3. Each entry shows the lead's `Name`, `PhoneNumber`, and `ZipCode`.
+
+#### Viewing Lead Details
+1. Click on any lead from the list to view more details, including the `Email`, `OptInForCommunication`, and the timestamp (`ReceivedAt`).
+
+#### Simulating Notifications
+1. The UI includes a button to simulate sending an SMS/Email notification for a specific lead.
+2. When clicked, the backend API is called to trigger the notification process. A message will appear confirming the action.
+
+## Contributing
 
 Feel free to submit issues or create pull requests. Contributions are welcome!
 
----
-
-### License
+## License
 
 MIT License
 
----
-
-### Contact
+## Contact
 
 For questions, reach out to tolgasecme@icloud.com.
+
+### Documentation Added Here
