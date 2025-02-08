@@ -1,3 +1,4 @@
+/* Styles for the lead details card */
 .lead-card {
   max-width: 500px;
   margin: 30px auto;
@@ -9,39 +10,35 @@
   align-items: center;
 }
 
-/* Optional: Add centering for spinner while loading the details */
+/* Center the loading spinner and message while fetching data */
 .spinner-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 300px; /* Adjust height as needed */
+  height: 300px; /* Adjust height to match the card */
 }
 
-/* Notification styling */
+/* Style for notification text (when a notification is sent) */
 .notification {
   color: green;
   font-weight: bold;
 }
 
-/* Optional styling for card actions */
+/* Align action buttons (Go Back & Send Notification) to center */
 mat-card-actions {
   display: flex;
   justify-content: center;
 }
 
-/* Ensure the text and content inside card are centered */
+/* Center text inside the lead details card */
 mat-card-content {
   text-align: center;
 }
 
-.notification {
-  color: green;
-  font-weight: bold;
-}
-
+/* Custom Snackbar styling for success messages */
 .custom-snackbar {
-  background-color: #4caf50; /* Green color */
+  background-color: #4caf50; /* Green background */
   color: white;
   font-weight: bold;
 }

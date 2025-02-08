@@ -6,13 +6,13 @@
         public Guid Id { get; set; } = Guid.NewGuid();
 
         // Name of the lead (e.g., full name)
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;  // Initialize with an empty string
 
         // Phone number of the lead
-        public string PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; } = string.Empty;  // Initialize with an empty string
 
         // Zip code associated with the lead
-        public string ZipCode { get; set; }
+        public string ZipCode { get; set; } = string.Empty;  // Initialize with an empty string
 
         // Flag indicating if the lead has opted in to receive communication
         public bool OptInForCommunication { get; set; }

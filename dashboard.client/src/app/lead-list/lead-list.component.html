@@ -1,42 +1,47 @@
+<!-- Page Title -->
 <h1 class="page-title">Lead Management</h1>
 
-<!-- Spinner shown while loading -->
+<!-- Spinner shown while loading data -->
 <div *ngIf="isLoading" class="spinner-container">
+  <!-- Material Design spinner to show while data is loading -->
   <mat-spinner diameter="50" color="primary"></mat-spinner>
 </div>
 
-<!-- Display lead list when data is available -->
+<!-- Lead List Table: Displayed only when data is available -->
 <table mat-table [dataSource]="leads" class="mat-elevation-z8 lead-table" *ngIf="!isLoading">
-  <!-- Name Column -->
+  <!-- Name Column Definition -->
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef> Name </th>
     <td mat-cell *matCellDef="let lead"> {{ lead.name }} </td>
   </ng-container>
 
-  <!-- Phone Number Column -->
+  <!-- Phone Number Column Definition -->
   <ng-container matColumnDef="phoneNumber">
     <th mat-header-cell *matHeaderCellDef> Phone </th>
     <td mat-cell *matCellDef="let lead"> {{ lead.phoneNumber }} </td>
   </ng-container>
 
-  <!-- Email Column -->
+  <!-- Email Column Definition -->
   <ng-container matColumnDef="email">
     <th mat-header-cell *matHeaderCellDef> Email </th>
     <td mat-cell *matCellDef="let lead"> {{ lead.email }} </td>
   </ng-container>
 
-  <!-- Actions Column -->
+  <!-- Actions Column Definition -->
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef> Actions </th>
     <td mat-cell *matCellDef="let lead">
+      <!-- Button to navigate to Lead Detail Page -->
       <button mat-button color="accent" (click)="onRowClick(lead)">View Details</button>
     </td>
   </ng-container>
 
-  <!-- Define header and rows for the table -->
+  <!-- Header Row Definition: Links columns with headers -->
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+  <!-- Data Rows: Defines how the data will be shown in rows -->
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
-<!-- Message when there are no leads -->
+<!-- Display a message when no leads are available -->
 <p *ngIf="leads.length === 0 && !isLoading" class="no-leads">No leads available.</p>

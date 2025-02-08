@@ -33,3 +33,4 @@ C:\Users\Tolga\source\repos\Dashboard\Dashboard.Server\obj\Debug\net8.0\refint\D
 C:\Users\Tolga\source\repos\Dashboard\Dashboard.Server\obj\Debug\net8.0\Dashboard.Server.pdb
 C:\Users\Tolga\source\repos\Dashboard\Dashboard.Server\obj\Debug\net8.0\Dashboard.Server.genruntimeconfig.cache
 C:\Users\Tolga\source\repos\Dashboard\Dashboard.Server\obj\Debug\net8.0\ref\Dashboard.Server.dll
+C:\Users\Tolga\source\repos\Dashboard\dashboard.server\obj\Debug\net8.0\Dashboard.Server.sourcelink.json

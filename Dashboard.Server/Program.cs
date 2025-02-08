@@ -1,4 +1,5 @@
 using Dashboard.Server.Repositories;
+using Microsoft.Extensions.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,30 +24,41 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Enable CORS middleware (this should come before other middlewares like HTTPS redirection)
-app.UseCors("AllowAll");
-
-// Configure static files (in case you have any front-end served from the backend)
-app.UseDefaultFiles();
-app.UseStaticFiles();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+try
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    // Enable CORS middleware (this should come before other middlewares like HTTPS redirection)
+    app.UseCors("AllowAll");
+
+    // Configure static files (in case you have any front-end served from the backend)
+    app.UseDefaultFiles();
+    app.UseStaticFiles();
+
+    // Configure the HTTP request pipeline.
+    if (app.Environment.IsDevelopment())
+    {
+        app.UseSwagger();
+        app.UseSwaggerUI();
+    }
+
+    // Enable HTTPS redirection (keep this after CORS to ensure HTTPS works after CORS handling)
+    app.UseHttpsRedirection();
+
+    // Enable authorization middleware (this can be removed if you're not using any auth system yet)
+    app.UseAuthorization();
+
+    // Map controllers (this is needed to make sure your API endpoints are reachable)
+    app.MapControllers();
+
+    // Ensure Angular's index.html is served when any unknown route is accessed (SPA routing)
+    app.MapFallbackToFile("/index.html");
+
+    // Start the app
+    app.Run();
 }
-
-// Enable HTTPS redirection (keep this after CORS to ensure HTTPS works after CORS handling)
-app.UseHttpsRedirection();
-
-// Enable authorization middleware (this can be removed if you're not using any auth system yet)
-app.UseAuthorization();
-
-// Map controllers (this is needed to make sure your API endpoints are reachable)
-app.MapControllers();
-
-// Ensure Angular's index.html is served when any unknown route is accessed (SPA routing)
-app.MapFallbackToFile("/index.html");
-
-app.Run();
+catch (Exception ex)
+{
+    // Log critical startup errors
+    var logger = app.Services.GetRequiredService<ILogger<Program>>();
+    logger.LogError(ex, "An error occurred during application startup.");
+    throw;  // Ensure the exception is re-thrown after logging
+}

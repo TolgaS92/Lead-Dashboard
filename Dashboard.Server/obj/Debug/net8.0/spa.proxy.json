@@ -3,7 +3,7 @@
 "ServerUrl": "https://localhost:4200",
 "RedirectUrl": "",
 "LaunchCommand": "npm start",
-"WorkingDirectory": "C:\\Users\\Tolga\\source\\repos\\Dashboard\\dashboard.server\\..\\dashboard.client",
+"WorkingDirectory": "C:\\Users\\Tolga\\source\\repos\\Dashboard\\Dashboard.Server\\..\\dashboard.client",
 "MaxTimeoutInSeconds": "120",
 "KeepRunning": "false"
 }

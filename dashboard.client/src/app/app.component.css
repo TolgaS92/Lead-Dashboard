@@ -1,75 +1,79 @@
 /* General styles for the whole app */
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f4f7f6;
-  margin: 0;
-  padding: 0;
+  font-family: 'Arial', sans-serif; /* Set the font for the whole app */
+  background-color: #f4f7f6; /* Light background color for the app */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
 }
 
 h1 {
-  font-size: 2.5rem;
-  color: #333;
-  text-align: center;
-  margin: 2rem 0;
+  font-size: 2.5rem; /* Set font size for main headings */
+  color: #333; /* Dark color for text */
+  text-align: center; /* Center-align the heading */
+  margin: 2rem 0; /* Add space above and below the heading */
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem;
+  max-width: 1200px; /* Limit the maximum width of content */
+  margin: 0 auto; /* Center content horizontally */
+  padding: 1rem; /* Add padding inside the container */
 }
 
 /* Button styles */
 button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s;
+  background-color: #007bff; /* Blue background for the button */
+  color: white; /* White text on the button */
+  border: none; /* Remove border */
+  padding: 0.75rem 1.5rem; /* Add padding to button */
+  font-size: 1rem; /* Set font size for text */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  border-radius: 4px; /* Round the corners of the button */
+  transition: background-color 0.3s; /* Smooth transition effect for background */
 }
 
+  /* Button hover effect */
   button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darker blue when hovering */
   }
 
 /* Lead list styling */
 .lead-list {
-  margin-top: 2rem;
+  margin-top: 2rem; /* Add space above the lead list */
 }
 
 .lead-item {
-  background-color: #fff;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff; /* White background for each lead item */
+  padding: 1rem; /* Add padding inside each lead item */
+  margin-bottom: 1rem; /* Add space below each lead item */
+  border-radius: 8px; /* Round the corners of each lead item */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow effect for depth */
 }
 
+  /* Lead item paragraph styling */
   .lead-item p {
-    margin: 0;
-    color: #555;
+    margin: 0; /* Remove default margin from paragraphs */
+    color: #555; /* Light grey color for text */
   }
 
+  /* Styling for lead name */
   .lead-item .lead-name {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #333;
+    font-size: 1.2rem; /* Slightly larger text for lead names */
+    font-weight: bold; /* Bold font weight for lead names */
+    color: #333; /* Dark color for the name */
   }
 
+  /* Styling for lead information */
   .lead-item .lead-info {
-    color: #888;
+    color: #888; /* Lighter grey for other lead details */
   }
 
-/* Add responsiveness */
+/* Add responsiveness for smaller screens */
 @media (max-width: 768px) {
   .container {
-    padding: 0.5rem;
+    padding: 0.5rem; /* Reduce padding for small screens */
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 2rem; /* Reduce font size for headings on smaller screens */
   }
 }
