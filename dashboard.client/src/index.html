@@ -9,8 +9,45 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    /* Add your global styles here */
+    html, body {
+      font-family: 'Arial', sans-serif;
+      background-color: #A7B1E8;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Wrapper for main content */
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      overflow: auto;
+    }
+
+    /* Footer section to stick at the bottom */
+    footer.footer {
+      margin-top: auto; /* Push footer to the bottom */
+      background-color: #333; /* Dark background for the footer */
+      color: white; /* White text in the footer */
+      text-align: center; /* Center-align the footer text */
+      padding: 10px; /* Padding for the footer */
+      width: 100%; /* Ensure the footer spans the full width */
+      position: relative;
+      bottom: 0; /* Stay at the bottom of the page */
+      font-size: larger;
+    }
+  </style>
 </head>
 <body class="mat-typography">
   <app-root></app-root>
+  <!-- Footer section to show copyright information -->
+  <footer class="footer">
+    <!-- Copyright text, this remains static -->
+    <p>© 2025 Lead Management</p>
+  </footer>
 </body>
 </html>

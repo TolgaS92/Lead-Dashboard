@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { environment } from '../environments/environment.prod';  // Import environment
-import { mockLeads } from '../mock-leads';  // Import mock data
 
 // Define the Lead interface to strongly type the data
 export interface Lead {
@@ -31,34 +29,21 @@ export class LeadService {
   constructor(private http: HttpClient) { }
 
   getLeads(): Observable<Lead[]> {
-    if (environment.production) {
-      // If running in production, return mock data
-      return of(mockLeads);
-    } else {
-      // Otherwise, call the real API
-      return this.http.get<Lead[]>(this.apiUrl).pipe(
-        catchError((error) => {
-          console.error('Error fetching leads:', error);
-          return throwError(() => new Error('Failed to fetch leads.'));
-        })
-      );
-    }
+    return this.http.get<Lead[]>(this.apiUrl).pipe(
+      catchError((error) => {
+        console.error('Error fetching leads:', error);
+        return throwError(() => new Error('Failed to fetch leads.'));
+      })
+    );
   }
 
   getLeadById(id: string): Observable<Lead> {
-    if (environment.production) {
-      // Return mock data for specific ID in production
-      const lead = mockLeads.find((lead) => lead.id === id);
-      return of(lead as Lead);
-    } else {
-      // Call the real API in development
-      return this.http.get<Lead>(`${this.apiUrl}/${id}`).pipe(
-        catchError((error) => {
-          console.error(`Error fetching lead with ID ${id}:`, error);
-          return throwError(() => new Error('Failed to fetch lead.'));
-        })
-      );
-    }
+    return this.http.get<Lead>(`${this.apiUrl}/${id}`).pipe(
+      catchError((error) => {
+        console.error(`Error fetching lead with ID ${id}:`, error);
+        return throwError(() => new Error('Failed to fetch lead.'));
+      })
+    );
   }
 
   receiveLead(lead: Lead): Observable<{ Message: string; Notification: string }> {

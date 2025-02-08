@@ -53,7 +53,7 @@ describe('LeadService', () => {
       expect(response.message).toBe('SMS notification sent successfully to John Doe.');
 
       // Ensure that the lead's notificationSent flag is updated to true
-      expect(response.lead.notificationSent).toBeTrue();
+      expect(response.lead.notificationSent).toBe(true);
     });
 
     // Expect a POST request to the API for sending the notification

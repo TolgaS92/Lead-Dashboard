@@ -28,18 +28,6 @@ h1 {
   margin: 2rem 0; /* Add space above and below the heading */
 }
 
-/* Footer section to stick at the bottom */
-footer.footer {
-  margin-top: auto; /* Push footer to the bottom */
-  background-color: #333; /* Dark background for the footer */
-  color: white; /* White text in the footer */
-  text-align: center; /* Center-align the footer text */
-  padding: 10px; /* Padding for the footer */
-  width: 100%; /* Ensure the footer spans the full width */
-  position: relative;
-  bottom: 0; /* Stay at the bottom of the page */
-}
-
 /* Button styles */
 button {
   background-color: #007bff; /* Blue background for the button */

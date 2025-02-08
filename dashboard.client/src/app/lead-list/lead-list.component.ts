@@ -39,7 +39,7 @@ export class LeadListComponent {
           this.showNotification("❌ Failed to load leads.");  // Show error notification
         }
       );
-    }, 2000);  // Set a 2-second delay for simulation
+    }, 500);  // Set a 2-second delay for simulation
   }
 
   /**
@@ -47,7 +47,11 @@ export class LeadListComponent {
    * @param lead - The clicked lead object
    */
   onRowClick(lead: Lead): void {
-    this.router.navigate(['/lead', lead.id]);  // Navigate to the lead detail page
+    this.isLoading = true;  // Show spinner when loading leads
+    setTimeout(() => {
+      this.router.navigate(['/lead', lead.id]);  // Navigate to the lead detail page
+      this.isLoading = false;  // Hide the loading spinner after data is fetched
+    }, 500);
   }
 
   /**
@@ -80,5 +84,15 @@ export class LeadListComponent {
       panelClass: ['custom-snackbar'],  // Custom styling for the snackbar
       verticalPosition: 'top',  // Display at the top of the screen
     });
+  }
+
+  // Add getRowClass method
+  getRowClass(lead: any): string {
+    if (lead.status === 'new') {
+      return 'new-lead';
+    } else if (lead.status === 'contacted') {
+      return 'contacted-lead';
+    }
+    return '';
   }
 }

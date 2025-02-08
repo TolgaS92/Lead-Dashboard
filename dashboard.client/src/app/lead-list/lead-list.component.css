@@ -14,16 +14,16 @@
   text-transform: uppercase; /* Makes the text all uppercase for a bold effect */
 }
 
-  /* Underline effect for title */
-  .page-title::after {
-    content: '';
-    display: block;
-    width: 50%;
-    height: 3px;
-    margin: 10px auto 0;
-    background-color: #0072ff; /* Underline in blue */
-    border-radius: 2px;
-  }
+/* Underline effect for title */
+.page-title::after {
+  content: '';
+  display: block;
+  width: 50%;
+  height: 3px;
+  margin: 10px auto 0;
+  background-color: #0072ff; /* Underline in blue */
+  border-radius: 2px;
+}
 
 
 /* Styling for the lead table */
@@ -85,4 +85,29 @@
   display: block; /* Ensures the spinner is treated as a block-level element */
   margin: 0 auto; /* Centers the spinner horizontally */
   margin-top: 20px; /* Adds space above the spinner */
+}
+
+.new-lead {
+  background-color: #dff0d8; /* Light green background */
+}
+
+.contacted-lead {
+  background-color: #fcf8e3; /* Light yellow background */
+}
+
+/* Apply background color for different columns */
+.lead-table td:nth-child(1) {
+  background-color: #6F6E6E; /* Light grey for Name */
+}
+
+.lead-table td:nth-child(2) {
+  background-color: #6F6E6E; /* Light blue for Phone */
+}
+
+.lead-table td:nth-child(3) {
+  background-color: #6F6E6E; /* Light orange for Email */
+}
+
+.lead-table td:nth-child(4) {
+  background-color: #6F6E6E; /* Light green for Actions */
 }

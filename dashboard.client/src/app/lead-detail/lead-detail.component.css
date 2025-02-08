@@ -8,6 +8,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #CECECE;
 }
 
 /* Center the loading spinner and message while fetching data */
@@ -42,3 +43,18 @@ mat-card-content {
   color: white;
   font-weight: bold;
 }
+
+/* Custom button style to change the font color */
+.dark-font-button {
+  color: #000000; /* Dark font color */
+}
+
+  /* Optional: You can also style the button when it is disabled */
+  .dark-font-button:disabled {
+    color: #aaa; /* Lighter color for disabled state */
+  }
+
+  /* Hover effect for rows */
+  .dark-font-button:hover {
+    background-color: #ddd; /* Slightly darker grey on hover for interactivity */
+  }

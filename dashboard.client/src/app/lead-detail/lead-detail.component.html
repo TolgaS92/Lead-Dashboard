@@ -31,9 +31,10 @@
 
     <!-- Send Notification Button (Disabled if already sent) -->
     <button mat-button
-            color="accent"
+            color="primary"
             (click)="lead ? sendNotification(lead) : null"
-            [disabled]="lead?.notificationSent">
+            [disabled]="lead?.notificationSent"
+            class="dark-font-button">
       🚀 Send Notification
     </button>
   </mat-card-actions>

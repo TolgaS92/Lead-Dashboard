@@ -12,7 +12,7 @@
   <!-- Name Column Definition -->
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let lead"> {{ lead.name }} </td>
+    <td mat-cell *matCellDef="let lead" [ngClass]="getRowClass(lead)"> {{ lead.name }} </td>
   </ng-container>
 
   <!-- Phone Number Column Definition -->
@@ -32,7 +32,7 @@
     <th mat-header-cell *matHeaderCellDef> Actions </th>
     <td mat-cell *matCellDef="let lead">
       <!-- Button to navigate to Lead Detail Page -->
-      <button mat-button color="accent" (click)="onRowClick(lead)">View Details</button>
+      <button mat-button color="second" (click)="onRowClick(lead)">View Details</button>
     </td>
   </ng-container>
 
