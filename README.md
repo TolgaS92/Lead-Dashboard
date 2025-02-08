@@ -5,21 +5,22 @@ This project is a Lead Management Dashboard that receives and displays leads fro
 
 ## Project Structure
 
-Dashboard/
-│── Dashboard.Server/          # .NET Core Web API (Backend)
-│   ├── Dashboard.Server.csproj
-│   ├── Controllers/
-│   ├── Services/
-│   ├── Models/
-│   ├── Program.cs
-│   ├── appsettings.json
+Lead Management Dashboard/
+│── Dashboard.Server/            # .NET Core Web API (Backend)
+│   ├── Dashboard.Server.csproj  # Project file
+│   ├── Controllers/             # Contains API Controllers
+│   ├── Services/                # Business logic/services
+│   ├── Models/                  # Data models (e.g., Lead)
+│   ├── Program.cs               # Entry point for the API
+│   ├── appsettings.json         # Configuration file
 │
-│── dashboard.client/          # Angular Application (Frontend)
-│   ├── dashboard.client.esproj
-│   ├── src/
-│   ├── angular.json
-│   ├── package.json
-│   ├── tsconfig.json
+│── dashboard.client/            # Angular Application (Frontend)
+│   ├── dashboard.client.esproj  # Angular project file
+│   ├── src/                     # Source code folder
+│   ├── angular.json             # Angular project configuration
+│   ├── package.json             # Dependencies and scripts
+│   ├── tsconfig.json            # TypeScript configuration
+
 
 ## Features
 
