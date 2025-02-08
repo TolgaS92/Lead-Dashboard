@@ -33,7 +33,7 @@ Dashboard/
 
 ### **1. Clone the Repository**
 ```sh
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/TolgaS92/your-repo.git
 cd Dashboard
 ```
 
@@ -89,5 +89,5 @@ MIT License
 ---
 
 ## **Contact**
-For questions, reach out to **your-email@example.com**.
+For questions, reach out to **tolgasecme@icloud.com**.
 
