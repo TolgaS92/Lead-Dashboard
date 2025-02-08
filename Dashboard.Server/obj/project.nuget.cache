@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hWshjbwy9PxidJxOn8R64n8leazKy0u6jvC/8kT5vQ/8KQjfnyxiW7RnbBPjGWMRWt4AjsGgaenDDlTZ21W27A==",
+  "dgSpecHash": "ZWE0Q7B+G5C6vKRKDeSVznTkTSrqlY1CAgs5lFYj2W1kDd4ityW2I8ner6qGYV3cSwmD1i0ZD8YnKURb/gZN4w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Tolga\\source\\repos\\Dashboard\\dashboard.server\\Dashboard.Server.csproj",
+  "projectFilePath": "C:\\Users\\Tolga\\source\\repos\\Dashboard\\Dashboard.Server\\Dashboard.Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Tolga\\.nuget\\packages\\microsoft.aspnetcore.spaproxy\\8.0.12\\microsoft.aspnetcore.spaproxy.8.0.12.nupkg.sha512",
     "C:\\Users\\Tolga\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

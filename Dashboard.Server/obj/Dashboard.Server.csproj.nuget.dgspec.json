@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Tolga\\source\\repos\\Dashboard\\dashboard.server\\Dashboard.Server.csproj": {}
+    "C:\\Users\\Tolga\\source\\repos\\Dashboard\\Dashboard.Server\\Dashboard.Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Tolga\\source\\repos\\Dashboard\\dashboard.server\\Dashboard.Server.csproj": {
+    "C:\\Users\\Tolga\\source\\repos\\Dashboard\\Dashboard.Server\\Dashboard.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tolga\\source\\repos\\Dashboard\\dashboard.server\\Dashboard.Server.csproj",
+        "projectUniqueName": "C:\\Users\\Tolga\\source\\repos\\Dashboard\\Dashboard.Server\\Dashboard.Server.csproj",
         "projectName": "Dashboard.Server",
-        "projectPath": "C:\\Users\\Tolga\\source\\repos\\Dashboard\\dashboard.server\\Dashboard.Server.csproj",
+        "projectPath": "C:\\Users\\Tolga\\source\\repos\\Dashboard\\Dashboard.Server\\Dashboard.Server.csproj",
         "packagesPath": "C:\\Users\\Tolga\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tolga\\source\\repos\\Dashboard\\dashboard.server\\obj\\",
+        "outputPath": "C:\\Users\\Tolga\\source\\repos\\Dashboard\\Dashboard.Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
