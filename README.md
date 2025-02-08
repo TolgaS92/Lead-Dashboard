@@ -4,7 +4,7 @@
 This project is a Lead Management Dashboard that receives and displays leads from third-party providers via a webhook mechanism. It consists of a .NET Core backend (API) and an Angular frontend (dashboard UI).
 
 ## Project Structure
-
+```bash
 Lead Management Dashboard/
 │── Dashboard.Server/            # .NET Core Web API (Backend)
 │   ├── Dashboard.Server.csproj  # Project file
@@ -20,7 +20,7 @@ Lead Management Dashboard/
 │   ├── angular.json             # Angular project configuration
 │   ├── package.json             # Dependencies and scripts
 │   ├── tsconfig.json            # TypeScript configuration
-
+```
 
 ## Features
 
