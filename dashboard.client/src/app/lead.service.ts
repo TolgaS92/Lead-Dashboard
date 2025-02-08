@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable, throwError, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { environment } from '../environments/environment.prod';  // Import environment
+import { mockLeads } from '../mock-leads';  // Import mock data
 
 // Define the Lead interface to strongly type the data
 export interface Lead {
@@ -24,61 +26,46 @@ export interface NotificationResponse {
   providedIn: 'root',
 })
 export class LeadService {
-  // API base URL for communicating with the backend
   private apiUrl = 'https://TolgaS92.github.io/Lead-Dashboard/api/leads';
-
-  // Sample mock data to be used on GitHub Pages
-  private mockLeads: Lead[] = [
-    {
-      id: '1',
-      name: 'John Doe',
-      phoneNumber: '123-456-7890',
-      email: 'john@example.com',
-      zipCode: '12345',
-      receivedAt: new Date().toISOString(),
-      notificationSent: false,
-    },
-    {
-      id: '2',
-      name: 'Jane Smith',
-      phoneNumber: '987-654-3210',
-      email: 'jane@example.com',
-      zipCode: '67890',
-      receivedAt: new Date().toISOString(),
-      notificationSent: true,
-    },
-  ];
 
   constructor(private http: HttpClient) { }
 
   getLeads(): Observable<Lead[]> {
-    // Use mock data for GitHub Pages or real API in development
-    if (this.isProduction()) {
-      return of(this.mockLeads);  // Return mock leads if in production
+    if (environment.production) {
+      // If running in production, return mock data
+      return of(mockLeads);
     } else {
+      // Otherwise, call the real API
       return this.http.get<Lead[]>(this.apiUrl).pipe(
         catchError((error) => {
           console.error('Error fetching leads:', error);
-          return throwError(() => new Error('Failed to fetch leads. Please try again later.'));
+          return throwError(() => new Error('Failed to fetch leads.'));
         })
       );
     }
   }
 
   getLeadById(id: string): Observable<Lead> {
-    return this.http.get<Lead>(`${this.apiUrl}/${id}`).pipe(
-      catchError((error) => {
-        console.error(`Error fetching lead with ID ${id}:`, error);
-        return throwError(() => new Error(`Failed to fetch lead with ID ${id}. Please try again later.`));
-      })
-    );
+    if (environment.production) {
+      // Return mock data for specific ID in production
+      const lead = mockLeads.find((lead) => lead.id === id);
+      return of(lead as Lead);
+    } else {
+      // Call the real API in development
+      return this.http.get<Lead>(`${this.apiUrl}/${id}`).pipe(
+        catchError((error) => {
+          console.error(`Error fetching lead with ID ${id}:`, error);
+          return throwError(() => new Error('Failed to fetch lead.'));
+        })
+      );
+    }
   }
 
   receiveLead(lead: Lead): Observable<{ Message: string; Notification: string }> {
     return this.http.post<{ Message: string; Notification: string }>(this.apiUrl, lead).pipe(
       catchError((error) => {
         console.error('Error receiving lead:', error);
-        return throwError(() => new Error('Failed to receive lead. Please try again later.'));
+        return throwError(() => new Error('Failed to receive lead.'));
       })
     );
   }
@@ -87,13 +74,8 @@ export class LeadService {
     return this.http.post<NotificationResponse>(`${this.apiUrl}/send-notification`, lead).pipe(
       catchError((error) => {
         console.error(`Error sending notification for lead ${lead.id}:`, error);
-        return throwError(() => new Error('Failed to send notification. Please try again later.'));
+        return throwError(() => new Error('Failed to send notification.'));
       })
     );
-  }
-
-  // Helper method to check if running in production
-  private isProduction(): boolean {
-    return window.location.hostname.includes('github.io');
   }
 }
