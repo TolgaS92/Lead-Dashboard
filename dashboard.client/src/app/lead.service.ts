@@ -25,7 +25,7 @@ export interface NotificationResponse {
 })
 export class LeadService {
   // API base URL for communicating with the backend
-  private apiUrl = 'http://localhost:5156/api/leads';
+  private apiUrl = 'https://TolgaS92.github.io/Lead-Dashboard/api/leads';
 
   // Inject HttpClient for making HTTP requests
   constructor(private http: HttpClient) { }
