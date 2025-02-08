@@ -26,7 +26,7 @@ export interface NotificationResponse {
   providedIn: 'root',
 })
 export class LeadService {
-  private apiUrl = 'https://TolgaS92.github.io/Lead-Dashboard/api/leads';
+  private apiUrl = 'http://localhost:5156/api/leads';
 
   constructor(private http: HttpClient) { }
 

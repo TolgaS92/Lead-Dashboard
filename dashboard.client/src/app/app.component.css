@@ -4,8 +4,23 @@ body {
   background-color: #f4f7f6; /* Light background color for the app */
   margin: 0; /* Remove default margin */
   padding: 0; /* Remove default padding */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
+/* Wrapper for main content to push footer down */
+.main-content {
+  flex: 1;
+  padding: 20px; /* You can adjust padding as needed */
+}
+
+/* MatToolbar styling (if needed for the header, keep as is) */
+mat-toolbar {
+  background-color: #007bff; /* Match toolbar with button color */
+}
+
+/* Styling for header */
 h1 {
   font-size: 2.5rem; /* Set font size for main headings */
   color: #333; /* Dark color for text */
@@ -13,10 +28,13 @@ h1 {
   margin: 2rem 0; /* Add space above and below the heading */
 }
 
-.container {
-  max-width: 1200px; /* Limit the maximum width of content */
-  margin: 0 auto; /* Center content horizontally */
-  padding: 1rem; /* Add padding inside the container */
+/* Footer section to stick at the bottom */
+footer.footer {
+  margin-top: auto; /* Push footer to the bottom */
+  background-color: #333; /* Dark background for the footer */
+  color: white; /* White text in the footer */
+  text-align: center; /* Center-align the footer text */
+  padding: 10px; /* Padding for the footer */
 }
 
 /* Button styles */
@@ -41,6 +59,7 @@ button {
   margin-top: 2rem; /* Add space above the lead list */
 }
 
+/* Styling for lead items (background, padding, etc.) */
 .lead-item {
   background-color: #fff; /* White background for each lead item */
   padding: 1rem; /* Add padding inside each lead item */
@@ -66,6 +85,53 @@ button {
   .lead-item .lead-info {
     color: #888; /* Lighter grey for other lead details */
   }
+
+/* Table styles for better readability */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px; /* Space between table and other content */
+}
+
+/* Table headers styling */
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #4CAF50; /* Professional header background */
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase; /* Make header text uppercase */
+  padding: 12px;
+  text-align: center;
+  border: 2px solid #3e8e41;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+  th:first-child {
+    border-left: none;
+  }
+
+  th:last-child {
+    border-right: none;
+  }
+
+/* Alternate row colors */
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+/* Row hover effect */
+tr:hover {
+  background-color: #ddd;
+}
 
 /* Add responsiveness for smaller screens */
 @media (max-width: 768px) {
