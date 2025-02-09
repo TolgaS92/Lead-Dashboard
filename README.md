@@ -85,6 +85,7 @@ The backend is built using **ASP.NET Core 8** and exposes a RESTful API to handl
 ```http
 POST /api/leads
 ```
+
 **Request Body:**
 ```json
 {
@@ -94,12 +95,17 @@ POST /api/leads
   "optInForCommunication": true,
   "email": "johmdoe@example.com"
 }```
+
+
+
 **Response:**
+
 ```json
 {
   "message": "Lead received successfully"
 }
 ```
+
 
 #### **Retrieve All Leads**
 ```http
