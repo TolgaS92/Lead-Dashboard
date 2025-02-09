@@ -94,9 +94,8 @@ POST /api/leads
   "zipCode": "89675",
   "optInForCommunication": true,
   "email": "johmdoe@example.com"
-}```
-
-
+}
+```
 
 **Response:**
 
@@ -105,7 +104,6 @@ POST /api/leads
   "message": "Lead received successfully"
 }
 ```
-
 
 #### **Retrieve All Leads**
 ```http
