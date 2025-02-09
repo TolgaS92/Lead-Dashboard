@@ -77,8 +77,63 @@ Lead Management Dashboard/
 - Dev Tools: Git, Visual Studio, Visual Studio Code
 
 ## Documentation
+### **Backend API Overview**
+The backend is built using **ASP.NET Core 8** and exposes a RESTful API to handle lead management.
 
 ### Functional Specification
+#### **Webhook Endpoint (Receive Leads)**
+```http
+POST /api/leads
+```
+**Request Body:**
+```json
+{
+  "name": "John Doe",
+  "phoneNumber": "435-456-7890",
+  "zipCode": "89675",
+  "optInForCommunication": true,
+  "email": "johmdoe@example.com"
+}```
+**Response:**
+```json
+{
+  "message": "Lead received successfully"
+}
+```
+
+#### **Retrieve All Leads**
+```http
+GET /api/leads
+```
+**Response:**
+```json
+[
+  {
+    "id": "1",
+    "name": "John Doe",
+    "email": "john@example.com",
+    "phoneNumber": "123-456-7890",
+    "zipCode": "90210",
+    "receivedAt": "2025-02-07T10:00:00Z"
+  }
+]
+```
+
+#### **Retrieve Lead by ID**
+```http
+GET /api/leads/{id}
+```
+
+#### **Send Notification**
+```http
+POST /api/leads/send-notification
+```
+**Response:**
+```json
+{
+  "message": "Notification sent successfully"
+}
+```
 
 #### How the API Works
 - **POST /api/leads**: Receives a new lead from third-party providers via webhook. The body of the request must include the lead's `Name`, `PhoneNumber`, `ZipCode`, `OptInForCommunication`, and an optional `Email`. The API validates the lead data and adds it to an in-memory collection.
@@ -104,7 +159,7 @@ Lead Management Dashboard/
 3. Each entry shows the lead's `Name`, `PhoneNumber`, and `ZipCode`.
 
 #### Viewing Lead Details
-1. Click on any lead from the list to view more details, including the `Email`, `OptInForCommunication`, and the timestamp (`ReceivedAt`).
+1. Click on any lead from the list to view more details, including the `Email` and `PhoneNumber`, `OptInForCommunication`, and the timestamp (`ReceivedAt`).
 
 #### Simulating Notifications
 1. The UI includes a button to simulate sending an SMS/Email notification for a specific lead.
@@ -121,5 +176,3 @@ MIT License
 ## Contact
 
 For questions, reach out to tolgasecme@icloud.com.
-
-### Documentation Added Here
